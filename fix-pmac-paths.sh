@@ -1,13 +1,13 @@
 #!/bin/bash
 
-sed -i 's:/asyn/4-31:/asyn-R4-33:g' /usr/local/epics/apps/pmac/configure/RELEASE.local
-sed -i 's:/calc/3-1:/calc-R3-7-1:g' /usr/local/epics/apps/pmac/configure/RELEASE.local
-sed -i 's:/motor/6-9dls14:/motor-R6-10-1:g' /usr/local/epics/apps/pmac/configure/RELEASE.local
-sed -i 's:/busy/1-6-1dls1:/busy-R1-7:g' /usr/local/epics/apps/pmac/configure/RELEASE.local
+sed -i 's:/asyn/4-33:/asyn-R4-33:g' /usr/local/epics/apps/pmac/configure/RELEASE.local
+sed -i 's:/calc/3-7:/calc-R3-7-1:g' /usr/local/epics/apps/pmac/configure/RELEASE.local
+sed -i 's:/motor/6-10-1dls1:/motor-R6-10-1:g' /usr/local/epics/apps/pmac/configure/RELEASE.local
+sed -i 's:/busy/1-7:/busy-R1-7:g' /usr/local/epics/apps/pmac/configure/RELEASE.local
 
-sed -i 's:/dls_sw/prod/R3.14.12.3/support:/usr/local/epics/synApps/support:g' /usr/local/epics/apps/pmac/configure/RELEASE.linux-x86_64.Common
-sed -i 's:/dls_sw/work/R3.14.12.3/support:/usr/local/epics/synApps/support:g' /usr/local/epics/apps/pmac/configure/RELEASE.linux-x86_64.Common
-sed -i 's:/dls_sw/epics/R3.14.12.3/base:/usr/local/epics/base:g' /usr/local/epics/apps/pmac/configure/RELEASE.linux-x86_64.Common
+sed -i 's:/dls_sw/prod/R3.14.12.7/support:/usr/local/epics/synApps/support:g' /usr/local/epics/apps/pmac/configure/RELEASE.linux-x86_64.Common
+sed -i 's:/dls_sw/work/R3.14.12.7/support:/usr/local/epics/synApps/support:g' /usr/local/epics/apps/pmac/configure/RELEASE.linux-x86_64.Common
+sed -i 's:/dls_sw/epics/R3.14.12.7/base:/usr/local/epics/base:g' /usr/local/epics/apps/pmac/configure/RELEASE.linux-x86_64.Common
 
 
 sed -i 's:/dls_sw/prod/tools/RHEL6-x86_64/boost/1-48-0/prefix:/usr:g' /usr/local/epics/apps/pmac/configure/CONFIG_SITE.linux-x86_64.Common
