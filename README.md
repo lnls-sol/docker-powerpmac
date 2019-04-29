@@ -60,7 +60,8 @@ pattern {P, M, PORT, ADDR, DESC, MRES, VELO, PREC, EGU, TWV, DTYP, DIR, VBAS, VM
 
 * Then execute:
 
-`./usr/local/epics/apps/pmac/iocs/simple-power-pmac/iocBoot/ioclab/stlab.sh`
+`cd /usr/local/epics/apps/pmac/iocs/simple-power-pmac/iocBoot/ioclab/`  
+`/.stlab.sh`
 
 # Further information
 
