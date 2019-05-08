@@ -1,6 +1,6 @@
 # Power PMAC module docker
 
-This docker has the powerpmac module (https://github.com/dls-controls/pmac) fixed to run on lnls.
+This docker has the [powerpmac module](https://github.com/dls-controls/pmac) fixed to run on lnls.
 
 ## Building the image
 
@@ -14,13 +14,29 @@ docker build -t powerpmac_ioc .
 
 ## Running container
 
-If you want to create a development folder on host computer, as you could do for your customized IOC, map the host folder on `dev` folder, which was created for this purpose:
+If you want to run our preconfigured features, do:
 
 ```sh
-docker run -it --rm -v /path/to/your/dev/folder/:/home/dev powerpmac_ioc bash
+docker run -it --rm powerpmac_ioc
 ```
 
-## Running Diamond IOC simple-power-pmac:
+This will take you to iocboot on a compiled ioc, [just run it](#running-diamond-ioc-simple-power-pmac).
+
+**NOTE:** Our ioc name is PmacSlit, but in the future it will be rename to a more beautiful and generic name.
+
+If you want to create a development folder on host computer, as you could do for your customized IOC, map the host folder on `dev` folder:
+
+```sh
+docker run -it --rm -v /path/to/your/dev/folder/:/path/to/your/dev/folder powerpmac_ioc bash
+```
+
+If you want to code on `pmac` module to modify, fix bugs, test or just for fun, you can map the module on you host computer too. The pmac module will be temporarily overwrite by the mapped development folder (don't worry, it won't be forever):
+
+```sh
+docker run -it -v path/to/dev:path/to/dev -v path/to/module:path/to/module powerpmac_ioc bash
+```
+
+## Running Diamond IOC simple-power-pmac
 
 * Edit /usr/local/epics/apps/pmac/iocs/simple-power-pmac/iocBoot/ioclab/stlab.src , to use the right IP, changing this line:
 
