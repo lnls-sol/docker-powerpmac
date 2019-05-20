@@ -20,7 +20,7 @@ RUN pip3 install numpy pyepics
 RUN mkdir -p /usr/local/epics/apps/
 WORKDIR /usr/local/epics/apps/
 # TODO We haven't merged with master yet!
-RUN git clone -b bugfix-dmov-not-returning https://github.com/georgekontogiorgos/pmac.git
+RUN git clone https://github.com/dls-controls/pmac.git
 # TODO Clone powerpmac ioc (In future pmacslit name will be change to something else that pass more generic idea about this ioc)
 # TODO We haven't merged with master yet!
 RUN git clone -b dev https://gitlab.cnpem.br/SOL/EpicsApps/PmacSlits.git
@@ -29,16 +29,16 @@ RUN git clone -b dev https://gitlab.cnpem.br/SOL/EpicsApps/PmacSlits.git
 # Fix pmac repository paths in order to run on lnls
 ################################################################################################
 # This snippet has been commented because now we are clonning from our fork of pmac module
-#WORKDIR /tmp
-#COPY fix-pmac-paths.sh /tmp
-#RUN ./fix-pmac-paths.sh
+WORKDIR /tmp
+COPY fix-pmac-paths.sh /tmp
+RUN ./fix-pmac-paths.sh
 
 ################################################################################################
 # Compile pmac module
 ################################################################################################
-WORKDIR /usr/local/epics/apps/pmac/
-ARG EPICS_HOST_ARCH="linux-x86_64"
-RUN make
+#WORKDIR /usr/local/epics/apps/pmac/
+#ARG EPICS_HOST_ARCH="linux-x86_64"
+#RUN make
 
 ################################################################################################
 # Compile powerpmac ioc
