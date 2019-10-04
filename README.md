@@ -36,6 +36,16 @@ If you want to code on `pmac` module to modify, fix bugs, test or just for fun, 
 docker run -it -v path/to/dev:path/to/dev -v path/to/module:path/to/module powerpmac_ioc bash
 ```
 
+## Running our IOC
+
+Customize `Pmac.cmd` and `config/pmac.substitutions` to your project and them run:
+
+```
+./Pmac.cmd
+```
+
+I am guessing that you are here: `/usr/local/epics/apps/config`, the folder that mimic nfs file organization.
+
 ## Running Diamond IOC simple-power-pmac
 
 * Edit /usr/local/epics/apps/pmac/iocs/simple-power-pmac/iocBoot/ioclab/stlab.src , to use the right IP, changing this line:

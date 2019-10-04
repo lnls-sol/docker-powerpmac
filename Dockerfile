@@ -33,20 +33,25 @@ ARG EPICS_HOST_ARCH="linux-x86_64"
 RUN make
 
 ################################################################################################
+# Copy motor template to right path
+RUN cp /usr/local/epics/apps/Pmac/pmacApp/Db/basic_asyn_motor.template /usr/local/epics/apps/pmac/db
+
+################################################################################################
 # Compile Pmac ioc
 WORKDIR /usr/local/epics/apps/Pmac
 ENV PATH="/usr/local/epics/extensions/bin/linux-x86_64/:${PATH}"
 RUN make
 
 ################################################################################################
-# Set startup directory as the ioc boot
-WORKDIR /usr/local/epics/apps/Pmac/iocBoot/iocpmac
-
-################################################################################################
-# Create config structure
+# Create config structure identical to nfs
 # FIXME When nfs structed is once here, this should be a bit different
 RUN mkdir -p /usr/local/epics/apps/config/Pmac/
 RUN cp /usr/local/epics/apps/Pmac/pmacApp/Db/pmac.substitutions /usr/local/epics/apps/config/Pmac/
+RUN cp /usr/local/epics/apps/Pmac/iocBoot/iocpmac/st.cmd /usr/local/epics/apps/config/Pmac.cmd
+
+################################################################################################
+# Set startup directory as the ioc boot
+WORKDIR /usr/local/epics/apps/config
 
 ################################################################################################
 # Set default program on docker run
