@@ -16,7 +16,16 @@ RUN pip3 install numpy pyepics
 # Create a folder to put pmac stuff
 RUN mkdir -p /usr/local/epics/apps/
 WORKDIR /usr/local/epics/apps/
-RUN git clone https://github.com/dls-controls/pmac.git
+
+################################################################################################
+# Get pmac module
+RUN wget https://github.com/dls-controls/pmac/archive/2-4-10.tar.gz
+RUN tar -xvf 2-4-10.tar.gz
+RUN mkdir pmac && tar xf 2-4-10.tar.gz -C pmac --strip-components 1
+RUN rm -r 2-4-10.tar.gz
+
+################################################################################################
+# Get our IOC from repo
 RUN git clone https://gitlab.cnpem.br/SOL/EpicsApps/Pmac.git
 
 ################################################################################################
