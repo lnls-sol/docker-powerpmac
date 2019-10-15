@@ -33,6 +33,8 @@ RUN git clone https://gitlab.cnpem.br/SOL/EpicsApps/Pmac.git
 # This snippet has been commented because now we are clonning from our fork of pmac module
 WORKDIR /tmp
 COPY fix-pmac-paths.sh /tmp
+RUN apt-get install dos2unix
+RUN dos2unix fix-pmac-paths.sh
 RUN ./fix-pmac-paths.sh
 
 ################################################################################################
